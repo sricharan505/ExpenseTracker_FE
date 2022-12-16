@@ -121,7 +121,7 @@ const CreateEntry = () => {
                                 value: ${amount},
                                 type : "${type}",
                                 category: "${category}",
-                                ${subcategory ? 'subcategory: "${subcategory}",':''}
+                                ${subcategory ? `subcategory: "${subcategory}",`:''}
                                 desc: "${desc}",
                                 date: ${date}
                             })
