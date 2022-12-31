@@ -4,13 +4,16 @@ const initialState = {
     loginerror: "",
     username: "",
     email: "",
-    authtoken:"",
+    authtoken: "",
     acctype: "",
-    expense: { categories: [], entries: [] },
-    income: { categories: [], entries: [] },
-    investment: { categories: [], entries: [] },
+    expense: { categories: [], entries: [],total:0 },
+    income: { categories: [], entries: [],total:0 },
+    investment: { categories: [], entries: [],total:0 },
     isloading: false,
     isloggedin: false,
+    rerenderExpense: false,
+    rerenderIncome: false,
+    rerenderInvestment: false,
 };
 
 const userSlice =  createSlice({
@@ -56,6 +59,19 @@ const userSlice =  createSlice({
             const entries = payload.entries;
 
             state[type].entries = entries;
+        },
+        loadtotal:(state,{payload}) => {
+            const type = payload.type;
+            state[type].total = payload.total;
+        },
+        setrerenderExpense:(state) => {
+            state.rerenderExpense = !state.rerenderExpense;
+        },
+        setrerenderIncome:(state) => {
+            state.rerenderIncome = !state.rerenderIncome;
+        },
+        setrerenderInvestment:(state) => {
+            state.rerenderInvestment = !state.rerenderInvestment;
         }
     }
 });
@@ -66,7 +82,10 @@ export const {
         login, 
         loadtypes,
         loadcategories, 
-        loadentries, 
-        
+        loadentries,
+        loadtotal,
+        setrerenderExpense,
+        setrerenderIncome,
+        setrerenderInvestment
     } = userSlice.actions;
 export default userSlice.reducer;

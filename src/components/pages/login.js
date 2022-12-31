@@ -1,5 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setisloading, setloginerror, login } from "../features/User/userSlice";
+import {
+  setisloading,
+  setloginerror,
+  login,
+} from "../../features/User/userSlice";
 import { Navigate } from "react-router-dom";
 import Error from "./error";
 
@@ -38,10 +42,9 @@ const Login = () => {
             `,
     };
 
-    let res; 
+    let res;
 
-    try
-    {
+    try {
       res = await fetch(process.env.REACT_APP_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -49,13 +52,10 @@ const Login = () => {
       });
 
       res = await res.json();
-    }
-    catch(err)
-    {
+    } catch (err) {
       console.log(err);
-      return(<Error/>);
+      return <Error />;
     }
-
 
     //console.log(res);
 
@@ -83,11 +83,12 @@ const Login = () => {
     }
   };
 
-  if(isloading)
-  {
-      return(<>
-          <h1>Loading.....</h1>
-      </>)
+  if (isloading) {
+    return (
+      <>
+        <h1>Loading.....</h1>
+      </>
+    );
   }
 
   return (
