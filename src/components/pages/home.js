@@ -1,24 +1,29 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { loadcategories } from "../../features/User/userSlice";
 import Expense from "./Expense";
 import Income from "./Income";
 import Investment from "./Investement";
 
+
 const Home = () => {
+
+  const {showexpense,showincome,showinvestment} = useSelector(state => state.user);
+
   return (
     <div className="px-4">
       <br></br>
 
-      <Expense></Expense>
+      <div className={showexpense ? "pb-12 " : "pb-12 md:hidden"}>
+        <Expense></Expense>
+      </div>
 
-      <br></br>
+      <div className={showincome ? "" : "pb-12 md:hidden"}>
+        <Income></Income>
+      </div>
 
-      <Income></Income>
-
-      <br></br>
-
-      <Investment></Investment>
+      <div className={showinvestment ? "" : "pb-12 md:hidden"}>
+        <Investment></Investment>
+      </div>
 
       <br></br>
       <br></br>

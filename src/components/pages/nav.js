@@ -1,9 +1,15 @@
 import { Outlet, NavLink, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import CreateEntry from "../entry/CreateEntry";
+import { useSelector,useDispatch } from "react-redux";
+import {
+  setshowexpense,
+  setshowincome,
+  setshowinvestment,
+} from "../../features/User/userSlice";
 
 const Nav = () => {
+
   const { isloggedin } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   if (!isloggedin) {
     return <Navigate to="/login"></Navigate>;
@@ -11,14 +17,9 @@ const Nav = () => {
 
   return (
     <>
-      <div className="w-full h-16 bg-red-500 flex flex-row justify-around">
+      <div className="w-full h-16 bg-red-500 flex flex-row justify-between">
         <div className="flex justify-center items-center py-6 px-3">
-          <svg
-            width="100"
-            height="60"
-            viewBox="0 0 312.5 312.5"
-            className="bg-stone-300 rounded-full"
-          >
+          <svg width="100" height="75" viewBox="0 0 312.5 312.5">
             <defs id="SvgjsDefs1817"></defs>
             <g
               id="SvgjsG1819"
@@ -41,10 +42,29 @@ const Nav = () => {
             </g>
           </svg>
         </div>
-        <div className="w-full h-16 bg-red-500 flex flex-row justify-around">
-          {/* <NavLink to="/home">Home</NavLink>
-                    <NavLink to="addanentry">Create Entry</NavLink> 
-                    <NavLink to="addcategory">Create category</NavLink> */}
+        <div className="md:w-2/5 "></div>
+        <div className="flex justify-end w-full h-16 text-lg flex-row md:justify-around items-center content-middle ">
+          <button
+            className="hidden md:block px-1 w-full h-full"
+            onClick={() => dispatch(setshowexpense())}
+          >
+            Expense
+          </button>
+          <button
+            className="hidden md:block px-1 w-full h-full"
+            onClick={() => dispatch(setshowincome())}
+          >
+            Income
+          </button>
+          <button
+            className="hidden md:block px-1 w-full h-full"
+            onClick={() => dispatch(setshowinvestment())}
+          >
+            Investment
+          </button>
+          <button className="px-2 w-full h-full">
+            Tax Calculator
+          </button>
         </div>
       </div>
 

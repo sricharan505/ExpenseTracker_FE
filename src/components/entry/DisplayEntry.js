@@ -20,7 +20,8 @@ const DisplayEntry = ({ entry, close }) => {
   const [isdeleted, setIsdeleted] = useState(false);
 
   const handleClose = () => {
-    if (iseditted || isdeleted) {
+    if (iseditted || isdeleted) 
+    {
       if (newentry.type === "expense") {
         dispatch(setrerenderExpense());
       } else if (newentry.type === "income") {
@@ -30,6 +31,10 @@ const DisplayEntry = ({ entry, close }) => {
       }
       setIseditted(false);
       setIsdeleted(false);
+      close(false);
+    }
+    else
+    {
       close(false);
     }
   };

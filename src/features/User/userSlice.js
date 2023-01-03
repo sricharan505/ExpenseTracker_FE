@@ -9,6 +9,9 @@ const initialState = {
     expense: { categories: [], entries: [],total:0 },
     income: { categories: [], entries: [],total:0 },
     investment: { categories: [], entries: [],total:0 },
+    showexpense : true,
+    showincome : false,
+    showinvestment : false,
     isloading: false,
     isloggedin: false,
     rerenderExpense: false,
@@ -72,6 +75,21 @@ const userSlice =  createSlice({
         },
         setrerenderInvestment:(state) => {
             state.rerenderInvestment = !state.rerenderInvestment;
+        },
+        setshowexpense: (state) => {
+            state.showexpense = true;
+            state.showincome = false;
+            state.showinvestment = false;
+        },
+        setshowincome: (state) => {
+            state.showexpense = false;
+            state.showincome = true;
+            state.showinvestment = false;
+        },
+        setshowinvestment: (state) => {
+            state.showexpense = false;
+            state.showincome = false;
+            state.showinvestment = true;
         }
     }
 });
@@ -86,6 +104,9 @@ export const {
         loadtotal,
         setrerenderExpense,
         setrerenderIncome,
-        setrerenderInvestment
+        setrerenderInvestment,
+        setshowexpense,
+        setshowincome,
+        setshowinvestment
     } = userSlice.actions;
 export default userSlice.reducer;
