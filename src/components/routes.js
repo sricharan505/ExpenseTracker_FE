@@ -16,8 +16,9 @@ const Approutes = () => {
             <Route path="signup" element={<Signup />}></Route>
 
             <Route path="home" element={<Nav />}>
-            <Route index element={<Home />}></Route>
+                <Route index element={<Home />}></Route>
             </Route>
+            <Route path="" element={<Login />}></Route>
         </Routes>
         </BrowserRouter>
     );

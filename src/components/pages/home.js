@@ -10,7 +10,7 @@ const Home = () => {
   const {showexpense,showincome,showinvestment} = useSelector(state => state.user);
 
   return (
-    <div className="px-4">
+    <div className="px-4 bg-purple-100 min-h-screen">
       <br></br>
 
       <div className={showexpense ? "pb-12 " : "pb-12 md:hidden"}>

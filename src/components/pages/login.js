@@ -44,7 +44,8 @@ const Login = () => {
 
     let res;
 
-    try {
+    try 
+    {
       res = await fetch(process.env.REACT_APP_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -52,14 +53,17 @@ const Login = () => {
       });
 
       res = await res.json();
-    } catch (err) {
+    } 
+    catch (err) 
+    {
       console.log(err);
       return <Error />;
     }
 
     //console.log(res);
 
-    if (res.errors) {
+    if (res.errors) 
+    {
       dispatch(setloginerror({ loginerror: res.errors[0].message }));
       dispatch(setisloading({ isloading: false }));
       console.log(loginerror);
@@ -75,15 +79,17 @@ const Login = () => {
       console.log("logged in");
       await delay(2000);
       dispatch(setisloading({ isloading: false }));
+      const loginInfo = {
+        username: res.data.login.username,
+        email: res.data.login.email,
+        authtoken: res.data.login.jwt,
+        acctype: res.data.login.acctype,
+        isloggedin: res.data.login.isloggedin,
+      };
       dispatch(
-        login({
-          username: res.data.login.username,
-          email: res.data.login.email,
-          authtoken: res.data.login.jwt,
-          acctype: res.data.login.acctype,
-          isloggedin: res.data.login.isloggedin,
-        })
+        login(loginInfo)
       );
+      localStorage.setItem("loginInfo", JSON.stringify(loginInfo));
     }
   };
 

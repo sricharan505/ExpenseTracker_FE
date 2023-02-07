@@ -45,10 +45,21 @@
     animation-fill-mode: forwards;
 }
 
+/* Homepage */
+
 table,
 th,
 td {
     text-align: center;
     border: 1px solid black;
     border-collapse: collapse;
+    padding:0px
+}
+
+th{
+    padding:5px
+}
+
+td > button {
+    padding:3px
 }

@@ -388,31 +388,31 @@ const Displaybytype = ({ type }) => {
         </span>
       </div>
       <div>
-        <div className="grid grid-cols-4 divide-x text-xl border">
+        <div className="grid grid-cols-4 divide-x text-xl border border-zinc-900">
           <button
             onClick={handleday}
-            className={`${byday ? "shadow-md border" : ""} py-2 px-6`}
+            className={`${byday ? "border border-zinc-900" : ""} py-2 px-6`}
           >
             Day
           </button>
 
           <button
             onClick={handlemonth}
-            className={`${bymonth ? "shadow-md border" : ""} py-2 px-6`}
+            className={`${bymonth ? "border border-zinc-900" : ""} py-2 px-6`}
           >
             Month
           </button>
 
           <button
             onClick={handleyear}
-            className={`${byyear ? "shadow-md border" : ""} py-2 px-6`}
+            className={`${byyear ? "border border-zinc-900" : ""} py-2 px-6`}
           >
             Year
           </button>
 
           <button
             onClick={handleperiod}
-            className={`${byperiod ? "shadow-md border" : ""} py-2 px-6`}
+            className={`${byperiod ? "border border-zinc-900" : ""} py-2 px-6`}
           >
             Period
           </button>
@@ -420,22 +420,24 @@ const Displaybytype = ({ type }) => {
 
         {byperiod == 1 ? (
           <div
-            className={`flex justify-center space-x-6 text-center border p-2 pt-3`}
+            className={`flex justify-center space-x-6 text-center border border-zinc-900 p-2 pt-3 py-6`}
           >
             <form onSubmit={(e) => handlepdates(e)}>
-              <label htmlFor="from">From:</label>
+              <label htmlFor="from">From : </label>
               <input id="from" name="from" type="date"></input>
 
-              <label htmlFor="to">To:</label>
+              <label htmlFor="to" className="pl-3">
+                To :{" "}
+              </label>
               <input id="to" name="to" type="date"></input>
 
-              <button type="submit" className="border">
+              <button type="submit" className="border ml-4">
                 OK
               </button>
             </form>
           </div>
         ) : (
-          <div className="flex justify-center space-x-6 text-center border p-2 pt-3">
+          <div className="flex justify-center space-x-6 text-center border border-zinc-900 p-2 pt-3">
             <button
               onClick={byday ? prevdate : bymonth ? prevmonth : prevyear}
               className="border py-2 px-6"

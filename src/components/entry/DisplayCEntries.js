@@ -94,10 +94,11 @@ const DisplayCEntries = ({ entries, categories }) => {
                   </td>
                   <td>
                     <span>
-                      {carray?(carray["sumbycategory"]
+                      {carray
+                        ? carray["sumbycategory"]
                           ? carray["sumbycategory"][c.category]
-                          : "")
-                        :""}
+                          : ""
+                        : ""}
                     </span>
                   </td>
                 </tr>
@@ -105,10 +106,14 @@ const DisplayCEntries = ({ entries, categories }) => {
             })}
             <tr>
               <td>
-                <span className="font-bold">Total</span>
+                <span className="font-bold" style={{ padding: "5px" }}>
+                  Total
+                </span>
               </td>
               <td>
-                <span className="font-bold">{Total}</span>
+                <span className="font-bold" style={{ padding: "5px" }}>
+                  {Total}
+                </span>
               </td>
             </tr>
           </tbody>
