@@ -16,8 +16,7 @@ ChartJS.register(
     LinearScale,
     BarElement,
     Title,
-    Tooltip,
-    Legend
+    Tooltip
 );
 
 
@@ -27,15 +26,6 @@ const CategoryChart = ({totals=[]}) => {
     const labels = Object.keys(totals);
     const options = {
         responsive: true,
-        plugins: {
-            legend: {
-            position: 'top',
-            },
-            title: {
-            display: true,
-            text: 'Expenses By Category Bar Chart',
-            },
-        },
     };
     //console.log(totals.map((total,index) => index))
     console.log(Object.keys(totals))
