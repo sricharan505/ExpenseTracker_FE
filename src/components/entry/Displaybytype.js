@@ -471,35 +471,61 @@ const Displaybytype = ({ type }) => {
         )}
 
         {type === "expense" && (
-          <DisplayCEntries
-            entries={expense.entries}
-            categories={expense.categories}
-          />
+          <>
+            <DisplayCEntries
+              entries={expense.entries}
+              categories={expense.categories}
+            />
+            {expense.categories.length > 0 && (
+              <button
+                className="p-2 m-2 border"
+                onClick={() => setCreateentry(true)}
+              >
+                Create entry
+              </button>
+            )}
+          </>
         )}
 
         {type === "income" && (
-          <DisplayCEntries
-            entries={income.entries}
-            categories={income.categories}
-          />
+          <>
+            <DisplayCEntries
+              entries={income.entries}
+              categories={income.categories}
+            />
+            {income.categories.length > 0 && (
+              <button
+                className="p-2 m-2 border"
+                onClick={() => setCreateentry(true)}
+              >
+                Create entry
+              </button>
+            )}
+          </>
         )}
 
         {type === "investment" && (
-          <DisplayCEntries
-            entries={investment.entries}
-            categories={investment.categories}
-          />
+          <>
+            <DisplayCEntries
+              entries={investment.entries}
+              categories={investment.categories}
+            />
+            {investment.categories.length > 0 && (
+              <button
+                className="p-2 m-2 border"
+                onClick={() => setCreateentry(true)}
+              >
+                Create entry
+              </button>
+            )}
+          </>
         )}
-
-        <button className="p-2 m-2 border" onClick={() => setCreateentry(true)}>
-          Create entry
-        </button>
 
         <button
           className="p-2 m-2 border"
           onClick={() => setEditcategories(true)}
         >
-          Edit Categories
+          Add/Edit Categories
         </button>
       </div>
     </div>

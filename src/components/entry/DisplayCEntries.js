@@ -2,6 +2,7 @@
 // taking categories and entries as input
 
 import { useEffect, useState } from "react";
+import CategoryChart from "../category/CategoryChart";
 import DisplaySCEntries from "./DisplaySCEntries";
 
 const DisplayCEntries = ({ entries, categories }) => {
@@ -54,10 +55,13 @@ const DisplayCEntries = ({ entries, categories }) => {
 
   //console.log(carray);
 
-  if (categories) {
+  if (categories.length > 0) {
     let Total = 0;
     return (
       <div>
+        <div>
+          <CategoryChart totals={carray["sumbycategory"]}></CategoryChart>
+        </div>
         <table className="w-full tableborder">
           <thead>
             <tr>
@@ -121,7 +125,7 @@ const DisplayCEntries = ({ entries, categories }) => {
       </div>
     );
   } else {
-    return <h1>No categories</h1>;
+    return <h1 style={{margin:'20px'}}>No categories. Create categories to add entries</h1>;
   }
 };
 
