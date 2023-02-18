@@ -21,7 +21,7 @@ ChartJS.register(
 
 
 
-const CategoryChart = ({totals=[]}) => {
+const CategoryChart = ({totals=[],type}) => {
 
     const labels = Object.keys(totals);
     const options = {
@@ -36,7 +36,7 @@ const CategoryChart = ({totals=[]}) => {
             {
             label: "Categories",
             data: labels.map((label) => totals[label] ),
-            backgroundColor: "rgba(255, 0, 0, 0.7)",
+            backgroundColor: type=="expense"?"rgb(171, 17, 12)":(type=="income"?"rgb(36, 133, 9)":"rgb(6, 125, 161)"),
             }
         ],
     };

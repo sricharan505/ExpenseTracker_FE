@@ -309,13 +309,11 @@ const CreateEntry = ({ defaulttype, close }) => {
 
         <br></br>
 
-        <button className="border p-2 m-2" type="submit">
-          {" "}
-          Submit{" "}
+        <button className="border border-zinc-900 p-2 m-2" type="submit">
+          Submit
         </button>
-        <button className="border p-2 m-2" onClick={() => close(false)}>
-          {" "}
-          Cancel{" "}
+        <button className="border border-zinc-900 p-2 m-2" onClick={() => close(false)}>
+          Cancel
         </button>
       </form>
       {/* {isAdded && <Navigate to="/home" replace={true} /> } */}

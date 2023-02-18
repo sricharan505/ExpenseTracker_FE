@@ -72,7 +72,7 @@ const Nav = () => {
   {
     return (
       <>
-        <div className="w-full h-16 bg-red-500 flex flex-row justify-between">
+        <div className="w-full h-16 bg-fuchsia-700 flex flex-row justify-between font-semibold">
           <div className="flex justify-center items-center py-6 px-3">
             <svg width="100" height="75" viewBox="0 0 312.5 312.5">
               <defs id="SvgjsDefs1817"></defs>

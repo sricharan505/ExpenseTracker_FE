@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import CategoryChart from "../category/CategoryChart";
 import DisplaySCEntries from "./DisplaySCEntries";
 
-const DisplayCEntries = ({ entries, categories }) => {
+const DisplayCEntries = ({ entries, categories, type }) => {
   const [carray, setCarray] = useState({});
   const [show, setShow] = useState({});
 
@@ -60,7 +60,7 @@ const DisplayCEntries = ({ entries, categories }) => {
     return (
       <div className="md:flex">
         <div className="w-full md:w-2/5 max-h-300 p-2 flex justify-center">
-          <CategoryChart totals={carray["sumbycategory"]}></CategoryChart>
+          <CategoryChart totals={carray["sumbycategory"]} type={type}></CategoryChart>
         </div>
         <div className="w-full md:w-3/5">
           <table className="w-full tableborder">

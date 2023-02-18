@@ -388,31 +388,31 @@ const Displaybytype = ({ type }) => {
         </span>
       </div>
       <div>
-        <div className="grid grid-cols-4 divide-x text-xl border border-zinc-900">
+        <div className="grid grid-cols-4 text-xl">
           <button
             onClick={handleday}
-            className={`${byday ? "border border-zinc-900" : ""} py-2 px-6`}
+            className={`${byday ? "border border-zinc-900" : "border-0"} py-2 px-6`}
           >
             Day
           </button>
 
           <button
             onClick={handlemonth}
-            className={`${bymonth ? "border border-zinc-900" : ""} py-2 px-6`}
+            className={`${bymonth ? "border border-zinc-900" : "border-0"} py-2 px-6`}
           >
             Month
           </button>
 
           <button
             onClick={handleyear}
-            className={`${byyear ? "border border-zinc-900" : ""} py-2 px-6`}
+            className={`${byyear ? "border border-zinc-900" : "border-0"} py-2 px-6`}
           >
             Year
           </button>
 
           <button
             onClick={handleperiod}
-            className={`${byperiod ? "border border-zinc-900" : ""} py-2 px-6`}
+            className={`${byperiod ? "border border-zinc-900" : "border-0"} py-2 px-6`}
           >
             Period
           </button>
@@ -420,27 +420,27 @@ const Displaybytype = ({ type }) => {
 
         {byperiod == 1 ? (
           <div
-            className={`flex justify-center space-x-6 text-center border border-zinc-900 p-2 pt-3 py-6`}
+            className={`flex justify-center align-center space-x-6 text-center border border-zinc-900 p-2 py-3`}
           >
             <form onSubmit={(e) => handlepdates(e)}>
               <label htmlFor="from">From : </label>
-              <input id="from" name="from" type="date"></input>
+              <input id="from" name="from" type="date" className="bg-amber-200 border border-zinc-900 p-1"></input>
 
               <label htmlFor="to" className="pl-3">
                 To :{" "}
               </label>
-              <input id="to" name="to" type="date"></input>
+              <input id="to" name="to" type="date" className="bg-amber-200 border border-zinc-900 p-1"></input>
 
-              <button type="submit" className="border ml-4">
+              <button type="submit" className="border-2 border-zinc-900 rounded-lg ml-4 py-2 px-6">
                 OK
               </button>
             </form>
           </div>
         ) : (
-          <div className="flex justify-center space-x-6 text-center border border-zinc-900 p-2 pt-3">
+          <div className="flex justify-center space-x-6 text-center border border-zinc-900 p-2 py-3">
             <button
               onClick={byday ? prevdate : bymonth ? prevmonth : prevyear}
-              className="border py-2 px-6"
+              className="border-2 border-zinc-900 rounded-lg py-2 px-6"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -456,7 +456,7 @@ const Displaybytype = ({ type }) => {
             </span>
             <button
               onClick={byday ? nextdate : bymonth ? nextmonth : nextyear}
-              className="border py-2 px-6"
+              className="border-2 border-zinc-900 rounded-lg py-2 px-6"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -475,10 +475,11 @@ const Displaybytype = ({ type }) => {
             <DisplayCEntries
               entries={expense.entries}
               categories={expense.categories}
+              type="expense"
             />
             {expense.categories.length > 0 && (
               <button
-                className="p-2 m-2 border"
+                className="p-2 m-4 border-2 rounded border-zinc-900"
                 onClick={() => setCreateentry(true)}
               >
                 Create entry
@@ -492,10 +493,11 @@ const Displaybytype = ({ type }) => {
             <DisplayCEntries
               entries={income.entries}
               categories={income.categories}
+              type="income"
             />
             {income.categories.length > 0 && (
               <button
-                className="p-2 m-2 border"
+                className="p-2 m-4 border-2 rounded border-zinc-900"
                 onClick={() => setCreateentry(true)}
               >
                 Create entry
@@ -509,10 +511,11 @@ const Displaybytype = ({ type }) => {
             <DisplayCEntries
               entries={investment.entries}
               categories={investment.categories}
+              type="investment"
             />
             {investment.categories.length > 0 && (
               <button
-                className="p-2 m-2 border"
+                className="p-2 m-4 border-2 rounded border-zinc-900"
                 onClick={() => setCreateentry(true)}
               >
                 Create entry
@@ -522,7 +525,7 @@ const Displaybytype = ({ type }) => {
         )}
 
         <button
-          className="p-2 m-2 border"
+          className="p-2 m-4 border-2 rounded border-zinc-900"
           onClick={() => setEditcategories(true)}
         >
           Add/Edit Categories

@@ -3,10 +3,7 @@ import Login from  './components/pages/login'
 import Approutes from './components/routes';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        
-      </header>
+    <div className="App bg-amber-300">
       <Approutes></Approutes>
     </div>
   );
