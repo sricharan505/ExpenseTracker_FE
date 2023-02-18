@@ -391,28 +391,28 @@ const Displaybytype = ({ type }) => {
         <div className="grid grid-cols-4 text-xl">
           <button
             onClick={handleday}
-            className={`${byday ? "border border-zinc-900" : "border-0"} py-2 px-6`}
+            className={`${byday ? "flex justify-center align-center border border-zinc-900" : "border-0"} py-2 px-6`}
           >
             Day
           </button>
 
           <button
             onClick={handlemonth}
-            className={`${bymonth ? "border border-zinc-900" : "border-0"} py-2 px-6`}
+            className={`${bymonth ? "flex justify-center align-center border border-zinc-900" : "border-0"} py-2 px-6`}
           >
             Month
           </button>
 
           <button
             onClick={handleyear}
-            className={`${byyear ? "border border-zinc-900" : "border-0"} py-2 px-6`}
+            className={`${byyear ? "flex justify-center align-center border border-zinc-900" : "border-0"} py-2 px-6`}
           >
             Year
           </button>
 
           <button
             onClick={handleperiod}
-            className={`${byperiod ? "border border-zinc-900" : "border-0"} py-2 px-6`}
+            className={`${byperiod ? "flex justify-center align-center border border-zinc-900" : "border-0"} py-2 px-6`}
           >
             Period
           </button>

@@ -21,7 +21,7 @@ const EditCategory = ({close,type,category}) => {
             return;
         }
 
-        if(category === "")
+        if(category === "" || edittedcategory === "")
         {
             setCategoryerror("Category cannot be empty");
             return;
@@ -71,22 +71,30 @@ const EditCategory = ({close,type,category}) => {
     }
 
     return(
-        <div className="flex flex-col justify-center">
-            <div>
-                <button className="m-2 p-2 border" onClick={()=>close(false)}>
-                    Close
-                </button>
-            </div>
+        <div className="bg-purple-500 text-xl p-8 rounded-2xl">
             <div>
                 <form onSubmit={handleSubmit}>
-                    <label>Type : {type}</label>
-                    <br></br>
-                    <label>Category </label>
-                    <input value={edittedcategory} onChange={(e)=>setEdittedcategory(e.target.value)}></input>
-                    <br></br>
-                    <span>{categoryerror}</span>
 
-                    <button type="submit" className="m-2 p-2 border">Submit</button>
+                    <div>
+                    <label>Type : <span className="font-bold">{type}</span></label>
+                    </div>
+
+                    <br></br>
+
+                    <div>
+                        <label>Category </label>
+                        <input className="border rounded-lg p-1" value={edittedcategory} onChange={(e)=>setEdittedcategory(e.target.value)}></input>
+                        <br></br>
+                        <span className="text-lg pl-2 text-red-600">{categoryerror}</span>
+                    </div>
+                    
+
+                    <div className="flex justify-center p-1 m-2">
+                        <button type="submit" className="m-2 p-2 border rounded bg-green-500">Submit</button>
+                        <button className="m-2 p-2 border rounded bg-red-500" onClick={()=>close(false)}>
+                            Close
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

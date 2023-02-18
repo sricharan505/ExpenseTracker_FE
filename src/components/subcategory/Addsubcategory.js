@@ -71,19 +71,24 @@ const Addsubcategory = ({type,category,close}) => {
     }
 
     return(
-    <div>
-        <button type="button" className="m-2 p-2 border" onClick={close}>Close</button>
+    <div className="bg-purple-500 text-xl p-8 rounded-2xl">
         <form onSubmit={handlesubmit}>
-            <label>Type : {type}</label>
-            <br></br>
-            <label>Category : {category}</label>
-            <br></br>
-            <label>Subcategory : </label>
-            <input value={newsubcategory} onChange={ e => setNewsubcategory(e.target.value)}></input>
-            <br></br>
-            <span>{subcategoryerror}</span>
-            <br></br>
-            <button className="p-2 m-2 border" >Submit</button>
+            <div className="p-1">
+                <label>Type : <span className="font-bold">{type}</span></label>
+            </div>
+            <div className="p-1">
+                <label>Category : <span className="font-bold">{category}</span></label>
+            </div>
+            <div className="p-1">
+                <label>Subcategory : </label>
+                <input className="border rounded-lg p-1" value={newsubcategory} onChange={ e => setNewsubcategory(e.target.value)}></input>
+                <br></br>
+                <span className="text-lg pl-16 text-red-600">{subcategoryerror}</span>
+            </div>
+            <div  className="flex justify-center p-1 m-2">
+                <button  type="submit" className="m-2 p-2 border rounded bg-green-500" >Submit</button>
+                <button type="button" className="m-2 p-2 border rounded bg-red-500" onClick={close}>Close</button>
+            </div>
         </form>
     </div>
     )

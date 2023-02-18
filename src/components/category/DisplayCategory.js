@@ -58,29 +58,34 @@ const DisplayCategory = ({type,category,subcategories,renderlist}) => {
 
     if(addsubcategory)
     {
+        document.body.classList.add("noscroll");
         return (
-            <div className="absolute inset-1/4 bg-gray-500">
+            <div className="fixed inset-0 overflow-scroll backdrop-blur h-full w-full flex flex-wrap justify-center content-center">
                 <Addsubcategory close={handleclose} type={type} category={category} />
             </div>
         );
     }
-
-    if(Editcategory)
+    else if(Editcategory)
     {
+        document.body.classList.add("noscroll");
         return (
-            <div className="absolute inset-1/4 bg-gray-500">
+            <div className="fixed inset-0 overflow-scroll backdrop-blur h-full w-full flex flex-wrap justify-center content-center">
                 <EditCategory close={handleclose} type={type} category={category}  />
             </div>
         );
     }
-
-    if(deletecategory)
+    else if(deletecategory)
     {
+        document.body.classList.add("noscroll");
         return (
-            <div className="absolute inset-1/4 bg-gray-500">
+            <div className="fixed inset-0 overflow-scroll backdrop-blur h-full w-full flex flex-wrap justify-center content-center">
                 <DeleteCategory close={handleclose} type={type} category={category} />
             </div>
         );
+    }
+    else
+    {
+        document.body.classList.remove("noscroll");
     }
 
     return(<>

@@ -17,6 +17,7 @@ const initialState = {
     rerenderExpense: false,
     rerenderIncome: false,
     rerenderInvestment: false,
+    noscroll:false
 };
 
 const userSlice =  createSlice({
@@ -90,6 +91,13 @@ const userSlice =  createSlice({
             state.showexpense = false;
             state.showincome = false;
             state.showinvestment = true;
+        },
+        togglenoscroll: (state) => {
+            state.noscroll = !(state.noscroll)
+            // if(state.noscroll)
+            //     document.document.body.style.overflow = "hidden";
+            // else
+            //     document.document.body.style.overflow = "scroll";
         }
     }
 });
@@ -107,6 +115,8 @@ export const {
         setrerenderInvestment,
         setshowexpense,
         setshowincome,
-        setshowinvestment
+        setshowinvestment,
+        togglenoscroll
     } = userSlice.actions;
+
 export default userSlice.reducer;

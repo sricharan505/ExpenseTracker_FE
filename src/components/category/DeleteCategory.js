@@ -44,13 +44,13 @@ const DeleteCategory = ({close,type,category}) => {
     }
 
     return(
-        <div>
-            <span>Are you sure. This deletes all entries with "{category}" as category</span>
+        <div className="bg-purple-500 text-xl p-8 rounded-2xl">
+            <span>Are you sure. This deletes all entries with <span className="font-bold">"{category}"</span> as category</span>
             <br></br>
-            <button className="m-2 p-2 border" onClick={handledelete}>
+            <button className="m-4 p-2 border rounded bg-red-500" onClick={handledelete}>
                 Delete
             </button>
-            <button className="m-2 p-2 border" onClick={()=>close(false)}>
+            <button className="m-4 p-2 border rounded bg-green-500" onClick={()=>close(false)}>
                 Close
             </button>
         </div>

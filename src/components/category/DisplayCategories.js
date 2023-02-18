@@ -1,14 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import DisplayCategory from "./DisplayCategory";
 import Addcategory from "./AddCategory";
-import {setrerenderExpense,setrerenderIncome,setrerenderInvestment} from '../../features/User/userSlice';
+import {setrerenderExpense,setrerenderIncome,setrerenderInvestment, togglenoscroll} from '../../features/User/userSlice';
 
 const Displaycategories = ({ type, close }) => {
   const { expense, income, investment } = useSelector((state) => state.user);
   const [categories, setCategories] = useState([]);
   const [addcategory, setAddcategory] = useState(false);
   const [renderlist, setrenderlist] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handlerenderlist = () => {
     setrenderlist(!renderlist);
@@ -34,15 +36,22 @@ const Displaycategories = ({ type, close }) => {
     if (addcategory === false) 
     {
       setCategories(getcategory);
+      // dispatch(togglenoscroll())
+      document.body.classList.remove("noscroll");
+    }
+    else
+    {
+      // dispatch(togglenoscroll());
+      document.body.classList.add("noscroll");
     }
   }, [addcategory,renderlist]);
 
   //console.log(getcategory())
 
   return (
-    <div className="flex justify-center align-center">
+    <div className="flex justify-center align-center h-full w-full">
       {addcategory && (
-        <div className="absolute inset-1/4 bg-gray-500">
+        <div className="fixed inset-0 overflow-scroll backdrop-blur h-full w-full flex flex-wrap justify-center content-center">
           <Addcategory close={setAddcategory} type={type} />
         </div>
       )}

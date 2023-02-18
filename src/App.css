@@ -1,3 +1,14 @@
+/* App */
+.noscroll{
+    overflow: hidden;
+}
+
+.overlay { 
+    position: fixed; 
+    overflow-y: scroll;
+    inset: 0; 
+}
+
 /* Login */
 
 .loginbg{
